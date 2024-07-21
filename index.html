@@ -2,204 +2,771 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>svetlana dubkova</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,400;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>creatives on fire</title>
 <style>
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+--primary-color: #d1000d;
+--secondary-color: #ffffff;
+--accent-color: #0019f5;
+--text-color: #333333;
+--background-color: #faf2ed;
+--scroll-bg-color: #FFFFFF;
+--title-bg-color: #0a0a0a;
+--title-text-color: #d1000d;
+}
+
+* {
 margin: 0;
 padding: 0;
+box-sizing: border-box;
+}
+
+body {
 font-family: 'Roboto', sans-serif;
-background-color: #f5f5f5;
-color: #333;
-height: 100%;
-overflow-x: hidden;
+background-color: var(--background-color);
+color: var(--text-color);
+line-height: 1.6;
+font-size: 16px;
 }
-.parallax-container {
-height: 100vh;
-overflow-y: auto;
-overflow-x: hidden;
-perspective: 10px;
-scroll-behavior: smooth;
-padding-top: 30px; /* Add padding to account for the sticky header */
+
+.container {
+padding: 0 20px;
 }
-.parallax-layer {
-position: absolute;
-top: 30px; /* Adjust top position to account for the sticky header */
-left: 0;
-right: 0;
-bottom: 0;
-}
-.parallax-bg {
-transform: translateZ(-10px) scale(2);
-}
-.content {
-transform: translateZ(0);
-}
-section {
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-position: relative;
-padding: 2rem;
-}
-#title {
-background-color: #fff;
-height: 100vh;
-}
+
 h1 {
 font-size: 3rem;
 font-weight: 700;
-margin-bottom: 0.5rem;
 }
-.subtitle {
-font-family: 'Merriweather', serif;
-font-style: italic;
-font-size: 1rem;
-color: #666;
-margin-bottom: 2rem;
+
+h2 {
+font-size: 1.5rem;
 }
-.links {
-display: flex;
-justify-content: flex-start;
-max-width: 100%;
-margin-bottom: 1rem;
+
+h3 {
+font-weight:700;
 }
-.links a {
-margin-right: 1rem;
-font-size: 0.9rem;
-text-decoration: underline;
-font-family: 'Merriweather', serif;
-font-style: italic;
-color: #000;
+
+.section-title {
+font-size: 2.5rem;
 }
-#lyrics {
-background-color: #000;
-color: #fff;
-font-size: 0.9rem;
-line-height: 1.6;
-overflow: hidden;
-font-family: 'Merriweather', serif;
-padding-bottom: 5rem;
+
+.grid, .mission-events-grid {
+grid-template-columns: 1fr;
 }
-.lyrics-container {
-white-space: pre-wrap;
-word-break: break-word;
-opacity: 0;
-transition: opacity 0.5s ease;
-}
-#contact {
-position: fixed;
-bottom: 2rem;
-left: 2rem;
-background-color: #000;
-padding: 0.3rem 0.6rem;
-z-index: 10;
-opacity: 0;
-transition: opacity 0.5s ease;
-}
-#contact a {
-color: #fff;
-text-decoration: underline;
+
+.sticky-header {
 font-size: 0.8rem;
 }
-/* Updated styles for the sticky header */
+
+.sticky-header .container {
+flex-direction: column;
+align-items: center;
+}
+
+.parallax-section {
+background-attachment: scroll;
+}
+
+.scroll-container {
+overflow: hidden;
+white-space: nowrap;
+}
+
+.scroll-text {
+display: inline-block;
+padding-left: 100%;
+animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+0% { transform: translate(0, 0); }
+100% { transform: translate(-100%, 0); }
+}
+
+.scroll-text-1, .scroll-text-2 {
+display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+body {
+font-size: 18px;
+}
+
+.container {
+padding: 0 40px;
+}
+
+h1 {
+font-size: 6rem;
+}
+
+h2 {
+font-size: 2rem;
+}
+
+.section-title {
+font-size: 3.5rem;
+}
+
+.grid, .mission-events-grid {
+grid-template-columns: 1fr 1fr;
+}
+
+.sticky-header .container {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.parallax-section {
+background-attachment: fixed;
+}
+}
+
+@media screen and (min-width: 1024px) {
+h1 {
+font-size: 10rem;
+}
+
+.section-title {
+font-size: 4.5rem;
+}
+
+/* Adjustments for specific elements */
+.sticky-header {
+font-size: 0.8rem;
+}
+
+.sticky-header .container {
+flex-direction: column;
+align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+.sticky-header .container {
+flex-direction: row;
+justify-content: space-between;
+}
+
+.emoji {
+height: 1em;
+width: 1em;
+vertical-align: middle;
+margin: 0 0.2em;
+max-width: 16px; /* Set a maximum width for the emoji */
+max-height: 16px; /*
+}
+
+.parallax-section {
+background-attachment: scroll; /* Default for mobile */
+}
+
+@media screen and (min-width: 768px) {
+.parallax-section {
+background-attachment: fixed; /* Re-enable parallax for larger screens */
+}
+}
+
+.scroll-container {
+overflow: hidden;
+white-space: nowrap;
+}
+
+.scroll-text {
+display: inline-block;
+padding-left: 100%;
+animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+0% { transform: translate(0, 0); }
+100% { transform: translate(-100%, 0); }
+}
+
+/* Ensure the scrolling text is visible on all screen sizes */
+.scroll-text-1, .scroll-text-2 {
+display: inline-block;
+}
+
+.container {
+width: 100%;
+max-width: 100%;
+margin: 0 auto;
+padding: 0 40px;
+}
+
+header {
+background: var(--secondary-color) !important; /* Ensure background color is applied */
+color: var(--primary-color);
+padding: 20rem 0;
+position: relative;
+overflow: hidden;
+opacity: 1;
+transition: opacity 0.3s ease;
+}
+
+h1 {
+font-size: 10rem;
+margin-bottom: 1rem;
+text-align: left;
+animation: slideInLeft 1s ease-out, fadeIn 2s ease-out;
+}
+
+h2 {
+font-size: 2rem; /* Reduced font size */
+font-weight: 400;
+text-align: left;
+animation: slideInRight 1s ease-out, fadeIn 2s ease-out;
+text-decoration: underline; /* Added underline */
+}
+
+@keyframes slideInLeft {
+from { transform: translateX(-100%); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+from { transform: translateX(100%); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+from { opacity: 1; }
+to { opacity: 0; }
+}
+
+@keyframes letterByLetter {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+section {
+padding: 3rem 0; /* Reduced padding for shorter sections */
+transition: background-color 0.3s ease, opacity 0.5s ease; /* Added opacity transition */
+opacity: 1; /* Initial opacity */
+}
+
+.section-title {
+font-size: 4.5rem;
+margin-bottom: 2rem;
+color: var(--primary-color);
+text-align: left;
+position: relative;
+display: inline-block;
+animation: fadeIn 2s ease-out;
+}
+
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 3px;
+background-color: var(--accent-color);
+transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+width: 100%;
+}
+
+.scroll-container {
+overflow: hidden;
+white-space: nowrap;
+background-color: var(--scroll-bg-color);
+padding: 0.5rem 0;
+margin: 0;
+}
+
+.scroll-text {
+display: inline-block;
+padding-left: 100%;
+animation: scroll 30s linear infinite;
+font-size: 1.2rem;
+}
+
+.scroll-text-1 { color: var(--primary-color); }
+.scroll-text-2 { color: var(--accent-color); }
+
+@keyframes scroll {
+0% { transform: translate(0, 0); }
+100% { transform: translate(-100%, 0); }
+}
+
+.checklist {
+list-style-type: none;
+padding-left: 2rem;
+}
+
+.checklist li {
+position: relative;
+padding-left: 1.5rem;
+margin-bottom: 1rem;
+text-align: left;
+transition: transform 0.3s ease;
+font-size: 1.2rem;
+animation: fadeIn 2s ease-out;
+}
+
+.checklist li:hover {
+transform: translateX(10px);
+}
+
+.checklist li::before {
+content: '🔥';
+position: absolute;
+left: 0;
+color: var(--primary-color);
+}
+
+#events {
+background-color: var(--secondary-color);
+color: var(--background-color);
+}
+
+#events .section-title {
+color: var(--background-color);
+}
+
+.events-list {
+list-style-type: none;
+}
+
+.events-list li {
+margin-bottom: 1rem;
+text-align: left;
+font-size: 1rem;
+animation: fadeIn 2s ease-out;
+}
+
+.events-list a {
+color: #0019f5; /* Bright blue color for links */
+text-decoration: underline; /* Underline links */
+font-weight: 560;
+transition: color 0.3s ease;
+}
+
+.events-list a:hover {
+color: var(--background-color);
+}
+
+#signup {
+background-color: var(--secondary-color);
+padding: 2rem 0; /* Reduced padding for shorter section */
+}
+
+.signup-container {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+form {
+display: flex;
+flex-direction: column;
+max-width: 400px;
+width: 100%;
+}
+
+input[type="email"] {
+padding: 1rem;
+margin-bottom: 1rem;
+border: none;
+border-radius: 5px;
+font-size: 1.2rem;
+}
+
+button {
+padding: 1rem;
+background-color: var(--primary-color);
+color: var(--background-color);
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-transform: uppercase;
+font-size: 1.2rem;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: var(--secondary-color);
+}
+
+.italic { font-style: italic; }
+.bold { font-weight: 700; }
+
+.grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+}
+
+.resources-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+a {
+color: #0019f5; /* Bright blue color for links */
+text-decoration: underline; /* Underline links */
+transition: color 0.3s ease;
+}
+
+a:hover {
+color: var(--primary-color);
+}
+
+.parallax-section {
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+overflow: hidden;
+}
+
+.parallax-content {
+position: relative;
+z-index: 2;
+}
+
+#parallax-header {
+min-height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background-image: url('https://source.unsplash.com/random/1920x1080?creative,fire');
+background-color: #0a0a0a; /* Almost black background color */
+}
+
+#mission-events {
+background-color: var(--secondary-color);
+color: var(--accent-color);
+}
+
+.mission-events-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+}
+
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+.floating {
+animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+0% { transform: translate(0, 0px); }
+50% { transform: translate(0, 15px); }
+100% { transform: translate(0, -0px); }
+}
+
+.resources-item {
+background-color: #fff;
+padding: 2rem;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+animation: fadeIn 2s ease-out;
+}
+
+.resources-item:hover {
+transform: translateY(-10px);
+}
+
+.resources-item h4 {
+color: var(--primary-color);
+margin-bottom: 1rem;
+}
+
 .sticky-header {
 position: fixed;
 top: 0;
 left: 0;
 width: 100%;
-height: 30px;
-background-color: rgba(0, 0, 0, 0.9);
-color: white;
-font-family: 'Playfair Display', serif;
-font-style: italic;
-font-size: 14px;
-line-height: 30px;
-overflow: hidden;
+background-color: var(--secondary-color);
+padding: 0.5rem 0;
 z-index: 1000;
+display: block;
+font-size: 0.8rem;
 }
-.scroll-text {
-white-space: nowrap;
-animation: scroll-left 20s linear infinite;
+
+.sticky-header.visible {
+display: block;
 }
-@keyframes scroll-left {
-0% { transform: translateX(100%); }
-100% { transform: translateX(-100%); }
+
+.sticky-header .container {
+justify-content: flex-start; /* Change to left alignment */
+align-items: center;
 }
-/* Add some chaos to the animation */
-.sticky-header:hover .scroll-text {
-animation-duration: 15s;
-animation-timing-function: ease-in-out;
+
+.sticky-header a {
+text-decoration: none;
+background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: rainbow 5s linear infinite;
+background-size: 200% 100%;
+}
+
+@keyframes rainbow {
+0% {
+background-position: 0% 50%;
+}
+100% {
+background-position: 200% 50%;
+}
 }
 </style>
 </head>
 <body>
 <div class="sticky-header">
-  <div class="scroll-text">nothing is that serious nothing in this life is personal we're all gonna die one day memento mori yolo so do what you want to do, love thy neighbor, and please let me live nothing is that serious nothing in this life is personal we're all gonna die one day memento mori yolo so do what you want to do, love thy neighbor, and please let me live nothing is that serious nothing in this life is personal we're all gonna die one day memento mori yolo so do what you want to do, love thy neighbor, and please let me live </div>
+<div class="container">
+<a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" target="_blank" rel="noopener noreferrer" class="luma-link">
+Subscribe to our <img src="https://em-content.zobj.net/thumbs/240/apple/325/calendar_1f4c5.png" alt="Calendar Emoji" class="emoji">events calendar<img src="https://em-content.zobj.net/thumbs/240/apple/325/calendar_1f4c5.png" alt="Calendar Emoji" class="emoji"> on Luma to stay up to date on thoughtfully curated events for the nyc creatives on fi/re community
+</a>
 </div>
-<div class="parallax-container">
-<div class="parallax-layer parallax-bg"></div>
-<div class="parallax-layer content">
-<section id="title">
-<h1>svetlana dubkova</h1>
-<div class="subtitle">currently based in nyc but open to fun short-term projects anywhere</div>
-<div class="links">
-<a href="https://www.skovaphotos.com/">photographer</a>
-<a href="https://underageandoverserved.com/">chief party officer</a>
-<a href="https://investingforfreaks.com/">fourth-space organizer</a>
-<a href="https://svetlanadubkova.substack.com/">dumb writer</a>
+</div>
+
+<header id="parallax-header" class="parallax-section">
+<div class="parallax-overlay"></div>
+<div class="container parallax-content">
+<h1 class="floating" style="color: #d1000d; bold">creatives on fi/re</h1>
+<h2 style="color: #3700ff;"><u><i>fire (financial independence/relax&pursue your passions early) for artists brain-trust community</i></u></h2>
+</div>
+</header>
+
+<main>
+<section id="about-us" class="fade-in">
+<div class="container">
+<h3 class="section-title">about us</h3>
+<ul class="checklist">
+<li>we believe fi(re) exists on a leveled spectrum: as such, we focus less on numbers and spreadsheets and more on bigger picture life-building.</li>
+<li>we're scrappy and tend to start out leanfi/coastfi but recognize that there are many pathways to fatfi once you reach those initial starter levels.</li>
+<li>we invest in index funds and we also invest in ourselves and our businesses.</li>
+<li>we're non-judgmental. we don't care what your fire number is. we accept and respect you if you're leanfi, fatfi, coastfi, flamingofi, baristafi and everything in between.</li>
+<li>we value freedom over safety. we're less focused on "retiring" and more focused on building a life we want to "retire" to.</li>
+<li>as such, our definition of "retired" is very lax. we prefer "relax early" to "retire early." we understand that work can be quite meaningful and fulfilling and we're not into poopooing your hustle.</li>
+<li>we lean towards "retire from your day job" and building a life where you profit from your art, app, small business etc.</li>
+<li>we understand that we only live once.</li>
+</ul>
 </div>
 </section>
-<section id="lyrics">
-<div class="lyrics-container"></div>
+
+<section id="values" class="fade-in">
+<div class="scroll-container">
+<div class="scroll-text">
+<span class="scroll-text-1">omnipotentialism</span> • <span class="scroll-text-2">mindfulness</span> • <span class="scroll-text-1">freedom</span> • <span class="scroll-text-2">work can be meaningful</span> • <span class="scroll-text-1">non-judgmental</span> • <span class="scroll-text-2">non-traditional</span> • <span class="scroll-text-1">scrappy</span> • <span class="scroll-text-2">flexible</span> • <span class="scroll-text-1">freedom</span> • <span class="scroll-text-2">options</span> • <span class="scroll-text-1">curious</span> • <span class="scroll-text-2">alternative-living</span> • <span class="scroll-text-1">high-agency</span> • <span class="scroll-text-2">intentional</span> • <span class="scroll-text-1">resilience</span> • <span class="scroll-text-2">authenticity</span> • <span class="scroll-text-1">life-long learning</span> • <span class="scroll-text-2">yolo</span> • <span class="scroll-text-1">resourceful</span> • <span class="scroll-text-2">abundance-mindset</span> • <span class="scroll-text-1">time-rich</span>
+</div>
+</div>
 </section>
+
+<section id="about-you" class="fade-in">
+<div class="container">
+<h3 class="section-title">about you</h3>
+<ul class="checklist">
+<li>creative of sorts: you might not live the most traditional life. you likely freelance or have a side gig or two.</li>
+<li>high agency: you have a vision for the type of life you want to build. you know what kind of life you want and you don't need someone else to describe it to you.</li>
+<li>you likely are well-familiarized with r/financialindependence, mr. money mustache, choosefi, etc.</li>
+<li> you understand that information is ubiquitous and cheap. what you're looking for is like-minded community and meaning-making. </li>
+<li>this isn't a group <i>*for*</i> beginners but if you're the nerdy, agentic type and you're just getting started on your fire journey, we welcome you to join us.</li>
+<li>you believe in yourself (<a href="https://blog.samaltman.com/the-strength-of-being-misunderstood" target="_blank" rel="noopener noreferrer">almost to the point of delusion</a>).</li>
+<li>you're driven by self-fulfillment and discovery, not by status.</li>
+<li class="bold">you value freedom and the pursuit of your curiosities.</li>
+</ul>
+</div>
+</section>
+
+<section id="community-members" class="fade-in">
+<div class="scroll-container">
+<div class="scroll-text">
+<span class="scroll-text-1">entrepreneurs</span> • <span class="scroll-text-2">artists</span> • <span class="scroll-text-1">freelancers</span> • <span class="scroll-text-2">gig workers</span> • <span class="scroll-text-1">coders</span> • <span class="scroll-text-2">digital nomads</span> • <span class="scroll-text-1">immigrants</span> •<span class="scroll-text-2">small business owners</span> • <span class="scroll-text-1">expats</span> • <span class="scroll-text-2">delivery drivers</span> • <span class="scroll-text-1">bartenders</span> • <span class="scroll-text-2">artisans</span> • <span class="scroll-text-1">content creators</span> • <span class="scroll-text-2">hospitality professionals</span> • <span class="scroll-text-1">family disappointments of any kind</span>
 </div>
 </div>
-<div id="contact">
-<a href="mailto:svetlanadubkova@outlook.com">contact me</a>
+</section>
+
+<section id="mission-events" class="fade-in">
+<div class="container">
+<div class="mission-events-grid">
+<div class="mission">
+<h3 class="section-title">our mission</h3>
+<p class="text-block text-left fade-in">in today's digital age, genuine community spaces for meaning-making are becoming increasingly rare. our mission is to create a vibrant and trustful <a href="https://x.com/patriciamou_/status/1698872698942967859">"fourth space"</a> for like-minded fi(re) creatives who share our values and aspirations. creatives on fi(re) was created in recognition of the gap between classic fi(re) values—freedom, alternative-living, pursuing curiosities and passions—and the growing fi(re) cohort of traditional high earners focused exclusively on maximizing saving and investment of surplus income. so creatives on fi(re) was born. we recognize that fi(re) isn't just about numbers and spreadsheets—it's about crafting a life of purpose, fulfillment, and financial stability is a means to that end. our community serves as a brain-trust, where creatives and alternative thinkers can discuss and take inspiration from unconventional paths to financial independence.</p>
+<style>
+@media screen and (max-width: 767px) {
+.sticky-header .emoji {
+height: 1em;
+width: 1em;
+max-width: none; /* Remove the maximum width */
+max-height: none; /* Remove the maximum height */
+}
+}
+</style>
 </div>
+<div class="events">
+<h3 class="section-title">upcoming events</h3>
+<ul class="events-list">
+<li class="fade-in"><a href="https://lu.ma/kyl0q24c">july 21: "join or die" documentary screening, q&a, + drinky drinks</a></li>
+<li class="fade-in"><a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps">stay tuned for regular meetups via luma</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="resources" class="fade-in">
+<div class="container">
+<h3 class="section-title">general resources for the fi-curious</h3>
+<div class="resources-grid">
+<div class="resources-item fade-in">
+<h4>finance blogs</h4>
+<ul class="events-list">
+<li><a href="https://www.mrmoneymustache.com/" target="_blank" rel="noopener noreferrer">mr. money mustache</a></li>
+<li><a href="https://apurplelife.com/" target="_blank" rel="noopener noreferrer">a purple life</a></li>
+<li><a href="https://jlcollinsnh.com/stock-series/" target="_blank" rel="noopener noreferrer">jl collins stock series</a></li>
+</ul>
+</div>
+<div class="resources-item fade-in">
+<h4>books</h4>
+<ul class="events-list">
+<li><a href="https://www.amazon.com/Simple-Path-Wealth-financial-independence/dp/1533667926" target="_blank" rel="noopener noreferrer">the simple path to wealth</a></li>
+<li><a href="https://www.amazon.com/Early-Retirement-Extreme-Philosophical-Practical/dp/145360121X" target="_blank" rel="noopener noreferrer">early retirement extreme</a></li>
+<li><a href="https://www.amazon.com/Die-Zero-Getting-Your-Money/dp/0358099765" target="_blank" rel="noopener noreferrer">die with zero</a></li>
+</ul>
+</div>
+<div class="resources-item fade-in">
+<h4>podcasts</h4>
+<ul class="events-list">
+<li><a href="https://www.choosefi.com/" target="_blank" rel="noopener noreferrer">choosefi</a></li>
+<li><a href="https://affordanything.com/" target="_blank" rel="noopener noreferrer">afford anything</a></li>
+</ul>
+</div>
+<div class="resources-item fade-in">
+<h4>forums</h4>
+<ul class="events-list">
+<li><a href="https://www.reddit.com/r/financialindependence/" target="_blank" rel="noopener noreferrer">r/financialindependence</a></li>
+<li><a href="https://forum.mrmoneymustache.com/" target="_blank" rel="noopener noreferrer">mr. money mustache forum</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="signup" class="fade-in">
+<div class="container signup-container">
+<h3 class="section-title">join the community</h3>
+<a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" target="_blank" rel="noopener noreferrer" class="luma-link">Subscribe to our events calendar on Luma to stay up to date on thoughtfully curated events for the nyc creatives on fi/re community</a>
+</div>
+</section>
+</main>
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-const lyrics = `I hear you be the block, but I'm the lights that keep the streets on Notice you the type, that like to keep them on a leash though I'm known to walk alone, but I'm alone for a reason Sending me a drink ain't appeasing, believe me Come harder, this won't be easy Don't doubt yourself trust me, you need me This ain't no shoulder with a chip, or an ego But what you think they all mad at me for? You need a real woman in your life (that's a good look) Taking care, home and still fly (that's a good look) And I'ma help you build up your account (that's a good look) Better yet a hood look, believe me (ladies that's a good look) When you're in them big meetings, for the mills (that's a good look) You take me just to complement the deals (that's a good look) And anything you cop, I'll split the bill (that's a good look) Better yet a hood look, believe me (ladies that's a good look) Partner, let me upgrade you, Audemars-Piguet you Switch your neck ties to purple labels Upgrade you, I can (up), can I? (Up), lett me (up) grade you Partner, let me upgrade you Partner, let me upgrade you`;
+// Sticky header
+window.addEventListener('scroll', function() {
+var stickyHeader = document.querySelector('.sticky-header');
+var scrollPosition = window.pageYOffset;
 
-const lyricsContainer = document.querySelector('.lyrics-container');
-const parallaxContainer = document.querySelector('.parallax-container');
-const contactButton = document.getElementById('contact');
-let index = 0;
-let isTyping = false;
-
-function typeLyrics() {
-if (index < lyrics.length) {
-lyricsContainer.textContent += lyrics.charAt(index);
-index++;
-setTimeout(typeLyrics, 5); // Increased typing speed (lower number = faster)
+if (scrollPosition > 300) {
+stickyHeader.classList.add('visible');
 } else {
-// Show contact button when typing is done
-contactButton.style.opacity = 1;
+stickyHeader.classList.remove('visible');
 }
-}
-
-function handleScroll() {
-const scrollPosition = parallaxContainer.scrollTop;
-const windowHeight = window.innerHeight;
-const lyricsSection = document.getElementById('lyrics');
-const lyricsSectionTop = lyricsSection.offsetTop;
-
-if (scrollPosition > lyricsSectionTop - windowHeight / 2 && !isTyping) {
-isTyping = true;
-lyricsContainer.style.opacity = 1;
-typeLyrics();
-}
+});
 
 // Parallax effect
-const title = document.getElementById('title');
-title.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+window.addEventListener('scroll', function() {
+let scrollPosition = window.pageYOffset;
+document.querySelectorAll('.parallax-section').forEach(function(section) {
+let speed = 0.5;
+section.style.backgroundPositionY = (scrollPosition - section.offsetTop) * speed + 'px';
+});
+});
+
+// Fade-in effect
+function isElementInViewport(el) {
+let rect = el.getBoundingClientRect();
+return (
+rect.top >= 0 &&
+rect.left >= 0 &&
+rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+);
 }
 
-parallaxContainer.addEventListener('scroll', handleScroll);
+function handleScrollAnimation() {
+document.querySelectorAll('.fade-in').forEach(function(el) {
+if (isElementInViewport(el)) {
+el.classList.add('active');
+}
+});
+}
+
+window.addEventListener('load', handleScrollAnimation);
+window.addEventListener('scroll', handleScrollAnimation);
+
+// Fade away effect
+window.addEventListener('scroll', function() {
+let scrollPosition = window.pageYOffset;
+document.querySelectorAll('section').forEach(function(section) {
+let fadeStart = section.offsetTop - window.innerHeight;
+let fadeEnd = section.offsetTop + section.offsetHeight;
+if (scrollPosition > fadeStart && scrollPosition < fadeEnd) {
+section.style.opacity = 1;
+}
+});
+
+// Fade away effect for header only after scrolling past it
+let header = document.querySelector('header');
+let headerFadeStart = header.offsetTop + header.offsetHeight;
+if (scrollPosition > headerFadeStart) {
+let headerOpacity = 1 - (scrollPosition - headerFadeStart) / (headerFadeStart);
+header.style.opacity = headerOpacity;
+} else {
+header.style.opacity = 1;
+}
+});
+
+// Letter by letter animation
+document.querySelectorAll('.section-title, h1, h2').forEach(function(el) {
+let text = el.innerText;
+el.innerHTML = '';
+for (let i = 0; i < text.length; i++) {
+let span = document.createElement('span');
+span.innerText = text[i];
+span.style.animation = `letterByLetter 0.5s ease ${i * 0.1}s forwards`;
+el.appendChild(span);
+}
+});
+
+// Form submission
+document.querySelectorAll('.signup-form').forEach(function(form) {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+alert('Thanks for signing up! We\'ll be in touch soon.');
+form.reset();
+});
 });
 </script>
 </body>
