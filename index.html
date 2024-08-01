@@ -42,6 +42,9 @@ font-size: 16px;
 }
 
 .container {
+width: 100%;
+max-width: 100%;
+margin: 0 auto;
 padding: 0 20px;
 }
 
@@ -142,6 +145,7 @@ font-size: 10rem;
 .section-title {
 font-size: 4.5rem;
 }
+}
 
 /* Adjustments for specific elements */
 .sticky-header {
@@ -158,6 +162,7 @@ align-items: center;
 flex-direction: row;
 justify-content: space-between;
 }
+}
 
 .emoji {
 height: 1em;
@@ -165,7 +170,7 @@ width: 1em;
 vertical-align: middle;
 margin: 0 0.2em;
 max-width: 16px; /* Set a maximum width for the emoji */
-max-height: 16px; /*
+max-height: 16px; /* Set a maximum height for the emoji */
 }
 
 .parallax-section {
@@ -176,34 +181,6 @@ background-attachment: scroll; /* Default for mobile */
 .parallax-section {
 background-attachment: fixed; /* Re-enable parallax for larger screens */
 }
-}
-
-.scroll-container {
-overflow: hidden;
-white-space: nowrap;
-}
-
-.scroll-text {
-display: inline-block;
-padding-left: 100%;
-animation: scroll 30s linear infinite;
-}
-
-@keyframes scroll {
-0% { transform: translate(0, 0); }
-100% { transform: translate(-100%, 0); }
-}
-
-/* Ensure the scrolling text is visible on all screen sizes */
-.scroll-text-1, .scroll-text-2 {
-display: inline-block;
-}
-
-.container {
-width: 100%;
-max-width: 100%;
-margin: 0 auto;
-padding: 0 40px;
 }
 
 header {
@@ -549,6 +526,13 @@ background-position: 0% 50%;
 background-position: 200% 50%;
 }
 }
+
+/* Fix for full-width white background sections */
+#mission-events, #signup {
+width: 100vw;
+margin-left: 50%;
+transform: translateX(-50%);
+}
 </style>
 </head>
 <body>
@@ -623,22 +607,19 @@ Subscribe to our <img src="https://em-content.zobj.net/thumbs/240/apple/325/cale
 <div class="mission">
 <h3 class="section-title">our mission</h3>
 <p class="text-block text-left fade-in">in today's digital age, genuine community spaces for meaning-making are becoming increasingly rare. our mission is to create a vibrant and trustful <a href="https://x.com/patriciamou_/status/1698872698942967859">"fourth space"</a> for like-minded fi(re) creatives who share our values and aspirations. creatives on fi(re) was created in recognition of the gap between classic fi(re) values—freedom, alternative-living, pursuing curiosities and passions—and the growing fi(re) cohort of traditional high earners focused exclusively on maximizing saving and investment of surplus income. so creatives on fi(re) was born. we recognize that fi(re) isn't just about numbers and spreadsheets—it's about crafting a life of purpose, fulfillment, and financial stability is a means to that end. our community serves as a brain-trust, where creatives and alternative thinkers can discuss and take inspiration from unconventional paths to financial independence.</p>
-<style>
-@media screen and (max-width: 767px) {
-.sticky-header .emoji {
-height: 1em;
-width: 1em;
-max-width: none; /* Remove the maximum width */
-max-height: none; /* Remove the maximum height */
-}
-}
-</style>
 </div>
 <div class="events">
-<h3 class="section-title">upcoming events</h3>
+<h3 class="section-title">events</h3>
+<h4>upcoming events</h4>
+<ul class="events-list">
+<li class="fade-in"><a href="https://lu.ma/or1n6xcf">aug 30: creatives on fi(re) governors island bike ride (no bike required) + drinky drinks</a></li>
+<li class="fade-in">DATE TBD: creatives on fi(re) kick-off partyyyyy</li>
+<li class="fade-in">DATE TBD: creative-and-bespoke-uses-of-ai-tech-for-your-small-business workshop/salon/hackathon</li>
+<li class="fade-in"><a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps">stay tuned for regular meetups via luma</a></li>
+</ul>
+<h4>past events</h4>
 <ul class="events-list">
 <li class="fade-in"><a href="https://lu.ma/kyl0q24c">july 21: "join or die" documentary screening, q&a, + drinky drinks</a></li>
-<li class="fade-in"><a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps">stay tuned for regular meetups via luma</a></li>
 </ul>
 </div>
 </div>
