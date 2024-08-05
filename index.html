@@ -175,7 +175,6 @@ Subscribe to our <img src="https://em-content.zobj.net/thumbs/240/apple/325/cale
     <div class="sample-question" onclick="askSampleQuestion(this)">tell me about the creatives on fire community in 3 sentences</div>
   </div>
 </div>
-
 <script>
   const chatMessages = document.getElementById('chat-messages');
   const userInput = document.getElementById('user-input');
@@ -203,6 +202,9 @@ Subscribe to our <img src="https://em-content.zobj.net/thumbs/240/apple/325/cale
         },
         body: JSON.stringify({ message: userMessage }),
       });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
       const data = await response.json();
       return data.reply;
     } catch (error) {
