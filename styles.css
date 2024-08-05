@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
@@ -132,7 +131,6 @@ font-size: 4.5rem;
 }
 }
 
-/* Adjustments for specific elements */
 .sticky-header {
 font-size: 0.8rem;
 }
@@ -154,22 +152,22 @@ height: 1em;
 width: 1em;
 vertical-align: middle;
 margin: 0 0.2em;
-max-width: 16px; /* Set a maximum width for the emoji */
-max-height: 16px; /* Set a maximum height for the emoji */
+max-width: 16px;
+max-height: 16px;
 }
 
 .parallax-section {
-background-attachment: scroll; /* Default for mobile */
+background-attachment: scroll;
 }
 
 @media screen and (min-width: 768px) {
 .parallax-section {
-background-attachment: fixed; /* Re-enable parallax for larger screens */
+background-attachment: fixed;
 }
 }
 
 header {
-background: var(--secondary-color) !important; /* Ensure background color is applied */
+background: var(--secondary-color) !important;
 color: var(--primary-color);
 padding: 20rem 0;
 position: relative;
@@ -186,11 +184,11 @@ animation: slideInLeft 1s ease-out, fadeIn 2s ease-out;
 }
 
 h2 {
-font-size: 2rem; /* Reduced font size */
+font-size: 2rem;
 font-weight: 400;
 text-align: left;
 animation: slideInRight 1s ease-out, fadeIn 2s ease-out;
-text-decoration: underline; /* Added underline */
+text-decoration: underline;
 }
 
 @keyframes slideInLeft {
@@ -219,9 +217,9 @@ to { opacity: 0; }
 }
 
 section {
-padding: 3rem 0; /* Reduced padding for shorter sections */
-transition: background-color 0.3s ease, opacity 0.5s ease; /* Added opacity transition */
-opacity: 1; /* Initial opacity */
+padding: 3rem 0;
+transition: background-color 0.3s ease, opacity 0.5s ease;
+opacity: 1;
 }
 
 .section-title {
@@ -319,8 +317,8 @@ animation: fadeIn 2s ease-out;
 }
 
 .events-list a {
-color: #0019f5; /* Bright blue color for links */
-text-decoration: underline; /* Underline links */
+color: #0019f5;
+text-decoration: underline;
 font-weight: 560;
 transition: color 0.3s ease;
 }
@@ -331,7 +329,7 @@ color: var(--background-color);
 
 #signup {
 background-color: var(--secondary-color);
-padding: 2rem 0; /* Reduced padding for shorter section */
+padding: 2rem 0;
 }
 
 .signup-container {
@@ -391,8 +389,8 @@ gap: 2rem;
 .text-right { text-align: right; }
 
 a {
-color: #0019f5; /* Bright blue color for links */
-text-decoration: underline; /* Underline links */
+color: #0019f5;
+text-decoration: underline;
 transition: color 0.3s ease;
 }
 
@@ -420,7 +418,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-image: url('https://source.unsplash.com/random/1920x1080?creative,fire');
-background-color: #0a0a0a; /* Almost black background color */
+background-color: #0a0a0a;
 }
 
 #mission-events {
@@ -490,7 +488,7 @@ display: block;
 }
 
 .sticky-header .container {
-justify-content: flex-start; /* Change to left alignment */
+justify-content: flex-start;
 align-items: center;
 }
 
@@ -512,13 +510,12 @@ background-position: 200% 50%;
 }
 }
 
-/* Fix for full-width white background sections */
 #mission-events, #signup {
 width: 100vw;
 margin-left: 50%;
 transform: translateX(-50%);
 }
- /* Chatbot styles */
+
 .chatbot-container {
   position: fixed;
   bottom: 20px;
@@ -532,8 +529,8 @@ transform: translateX(-50%);
   font-family: 'Roboto', sans-serif;
   flex-direction: column;
   z-index: 1000;
-  max-height: 80vh; /* Limit height on mobile */
-  max-width: 90vw; /* Limit width on mobile */
+  max-height: 80vh;
+  max-width: 90vw;
 }
 
 .chat-header {
@@ -670,7 +667,6 @@ transform: translateX(-50%);
   }
 }
 
-/* Mobile optimizations */
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 3rem;
@@ -696,5 +692,46 @@ transform: translateX(-50%);
     bottom: 10px;
     right: 10px;
   }
+
+  #mission-events {
+    padding: 2rem 0;
+  }
+
+  .mission-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission, .events {
+    padding: 1rem;
+  }
+
+  .mission h3, .events h3 {
+    font-size: 2rem;
+  }
+
+  .mission p, .events ul {
+    font-size: 1rem;
+  }
+
+  #mission-events, #signup {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
 }
 
+#mission-events {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.mission p, .events ul {
+  color: var(--text-color);
+}
+
+.mission, .events {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
