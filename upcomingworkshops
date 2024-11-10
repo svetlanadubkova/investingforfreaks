@@ -356,7 +356,7 @@
                 <div class="workshop-header" onclick="toggleWorkshop(this)">
                     <div class="workshop-eyebrow">workshop 2</div>
                     <div class="workshop-title-wrapper">
-                        <h2 class="workshop-title">intro to creatives on fi(re): core concepts</h2>
+                        <h2 class="workshop-title">intro to creatives on fi(re): financial independence/retire early (relax early) core concepts</h2>
                         <span class="toggle-icon">+</span>
                     </div>
                 </div>
