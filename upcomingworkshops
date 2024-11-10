@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creatives on fi(re) workshop series | investing4freaks</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #d1000d;
+            --secondary-color: #ffffff;
+            --accent-color: #0019f5;
+            --text-color: #333333;
+            --background-color: #ffffff;
+            --scroll-bg-color: #FFFFFF;
+            --title-bg-color: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+            text-transform: lowercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sticky-header a {
+            text-decoration: none;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 5s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        .emoji {
+            height: 1em;
+            width: 1em;
+            vertical-align: middle;
+            margin: 0 0.2em;
+            max-width: 16px;
+            max-height: 16px;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Main Header */
+        header {
+            padding: 0rem 10;
+            text-align: left;
+            background: var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            margin-top: 3rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        
+            color: var(--primary-color);
+            animation: slideInLeft 1s ease-out, fadeIn 2s ease-out, floating 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 4rem;
+            max-width: 1000px;
+            color: var(--accent-color);
+            text-decoration: underline;
+            animation: slideInRight 1s ease-out, fadeIn 2s ease-out;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+
+        /* Base section styling */
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <div class="sticky-header">
+        <div class="container">
+            <a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" target="_blank" rel="noopener noreferrer" class="luma-link">
+                Subscribe to our <img src="https://em-content.zobj.net/thumbs/240/apple/325/calendar_1f4c5.png" alt="Calendar Emoji" class="emoji">events calendar<img src="https://em-content.zobj.net/thumbs/240/apple/325/calendar_1f4c5.png" alt="Calendar Emoji" class="emoji"> on Luma to stay up to date on thoughtfully curated events for the nyc creatives on fi/re community
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="container">
+            <h1>creatives on fi(re): le workshops</h1>
+            <div class="subtitle">
+               intensive workshops for creative professionals who want to build their job-optional life on their own terms.
+            </div>
+        </div>
+    </header>
+<!-- Workshop Styles -->
+    <style>
+        .workshop-section {
+            padding: 6rem 0;
+        }
+
+        .workshop-item {
+            border-top: 1px solid #eee;
+        }
+
+        .workshop-header {
+            cursor: pointer;
+            padding: 2rem 0;
+        }
+
+        .workshop-eyebrow {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .workshop-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .workshop-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 0;
+            line-height: 1.1;
+            max-width: 90%;
+        }
+
+        .toggle-icon {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            padding-top: 0.5rem;
+        }
+
+        .workshop-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease-out, opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .workshop-item.active .workshop-content {
+            max-height: 2000px;
+            opacity: 1;
+            transform: translateY(0);
+            padding-bottom: 2rem;
+        }
+
+        .workshop-description {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        .workshop-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .detail-item {
+            position: relative;
+            padding-left: 1.5rem;
+            font-weight: 300;
+        }
+
+        .detail-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .workshop-meta {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .workshop-date {
+            margin-right: 2rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: var(--accent-color);
+            color: white;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn.waitlist {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn.waitlist:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .workshop-title {
+                font-size: 2rem;
+            }
+
+            .workshop-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Workshop Section -->
+    <section class="workshop-section">
+        <div class="container">
+            <!-- Workshop 1: AI for Creatives -->
+            <div class="workshop-item active">
+                <div class="workshop-header" onclick="toggleWorkshop(this)">
+                    <div class="workshop-eyebrow">workshop 1</div>
+                    <div class="workshop-title-wrapper">
+                        <h2 class="workshop-title">ai for creatives: building with ai as a non-technical creative</h2>
+                        <span class="toggle-icon">−</span>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <div class="workshop-description">
+                        learn accessible, low-code ai tools that enhance our work *without* compromising authenticity. we'll demo practical ai applications that free up your time, streamline your business, and amplify your creative impact — making room for what truly matters: your art and vision. (4-hour intensive workshop)
+                    </div>
+                    <div class="workshop-details">
+                        <div class="detail-item">build & host a free ai-powered portfolio/website (we'll do this together, live)</div>
+                        <div class="detail-item">hands-on aftershoot & topaz tutorials to level up your editing workflow</div>
+                        <div class="detail-item">set up your ai virtual assistant for email & client communication</div>
+                        <div class="detail-item">create an seo lead-generating quiz that actually converts</div>
+                        <div class="detail-item">dedicated implementation time with 1:1 support</div>
+                        <div class="detail-item">show & tell: share your builds with the group</div>
+                    </div>
+                    <div class="workshop-meta">
+                        <a href="https://lu.ma/sqhr5z34" class="btn">register now →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 2: Intro to FI(RE) -->
+            <div class="workshop-item">
+                <div class="workshop-header" onclick="toggleWorkshop(this)">
+                    <div class="workshop-eyebrow">workshop 2</div>
+                    <div class="workshop-title-wrapper">
+                        <h2 class="workshop-title">intro to creatives on fi(re): core concepts</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <div class="workshop-description">
+                        learn the fundamentals of fi(re) through a creative lens. we'll cover the core concepts you need to start your journey, focusing on practical application for non-traditional career paths and creative professionals.
+                    </div>
+                    <div class="workshop-details">
+                        <div class="detail-item">understand the fi(re) spectrum</div>
+                        <div class="detail-item">build your first freedom fund</div>
+                        <div class="detail-item">optimize creative income</div>
+                        <div class="detail-item">create your investment strategy</div>
+                        <div class="detail-item">design your wealth ecosystem</div>
+                        <div class="detail-item">start your action plan</div>
+                    </div>
+                    <div class="workshop-meta">
+                        <span class="workshop-date">january 2024</span>
+                        <a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" class="btn waitlist">join waitlist →</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 3: Spectrum of FI(RE) -->
+            <div class="workshop-item">
+                <div class="workshop-header" onclick="toggleWorkshop(this)">
+                    <div class="workshop-eyebrow">workshop 3</div>
+                    <div class="workshop-title-wrapper">
+                        <h2 class="workshop-title">the spectrum of fi(re): designing your job-optional life</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <div class="workshop-description">
+                        what happens when we stop viewing fi(re) as binary and start seeing it as a spectrum of possibilities? we'll map out concrete steps from emergency fund to financial independence, focusing specifically on the unique challenges and opportunities of creative professionals.
+                    </div>
+                    <div class="workshop-details">
+                        <div class="detail-item">map your current position on the fi spectrum</div>
+                        <div class="detail-item">workshop your path from emergency fund to fi</div>
+                        <div class="detail-item">identify your next actionable milestone</div>
+                        <div class="detail-item">learn strategies for each fi level</div>
+                        <div class="detail-item">real case studies from creatives who've done it</div>
+                        <div class="detail-item">create your personal fi roadmap</div>
+                    </div>
+                    <div class="workshop-meta">
+                        <span class="workshop-date">february 2024</span>
+                        <a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" class="btn waitlist">join waitlist →</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 4: Choose Your Adventure -->
+            <div class="workshop-item">
+                <div class="workshop-header" onclick="toggleWorkshop(this)">
+                    <div class="workshop-eyebrow">workshop 4</div>
+                    <div class="workshop-title-wrapper">
+                        <h2 class="workshop-title">choose your own fi(re) adventure: lifestyle design & financial projections</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <div class="workshop-description">
+                        move beyond basic fire calculators. we'll explore multiple possible futures and build custom financial models that account for the reality of creative income: variable earnings, multiple revenue streams, and the pursuit of meaningful work. bring your laptop — we're building multiple timelines.
+                    </div>
+                    <div class="workshop-details">
+                        <div class="detail-item">design multiple possible life paths</div>
+                        <div class="detail-item">build your custom adventure map</div>
+                        <div class="detail-item">integrate creative income streams</div>
+                        <div class="detail-item">create contingency branches</div>
+                        <div class="detail-item">compare different lifestyle scenarios</div>
+                        <div class="detail-item">choose your optimal path forward</div>
+                    </div>
+                    <div class="workshop-meta">
+                        <span class="workshop-date">march 2024</span>
+                        <a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" class="btn waitlist">join waitlist →</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 5: Hackathon -->
+            <div class="workshop-item">
+                <div class="workshop-header" onclick="toggleWorkshop(this)">
+                    <div class="workshop-eyebrow">workshop 5</div>
+                    <div class="workshop-title-wrapper">
+                        <h2 class="workshop-title">creatives on fi(re) hackathon: building with ai</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <div class="workshop-description">
+                        take everything you've learned about ai tools and actually implement them in your creative practice. expect intense work sessions, unblocking sessions with your co-attendees, and leaving with working projects & systems.
+                    </div>
+                    <div class="workshop-details">
+                        <div class="detail-item">build your automated systems from scratch</div>
+                        <div class="detail-item">set up passive income streams</div>
+                        <div class="detail-item">create your marketing automation</div>
+                        <div class="detail-item">real-time troubleshooting support</div>
+                        <div class="detail-item">peer feedback sessions</div>
+                        <div class="detail-item">launch what you build</div>
+                    </div>
+                    <div class="workshop-meta">
+                        <span class="workshop-date">april 2024</span>
+                        <a href="https://lu.ma/calendar/cal-Fe6cH6beebgzWps" class="btn waitlist">join waitlist →</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleWorkshop(header) {
+            const item = header.closest('.workshop-item');
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                // Close other open workshops
+                document.querySelectorAll('.workshop-item').forEach(workshop => {
+                    workshop.classList.remove('active');
+                    workshop.querySelector('.toggle-icon').textContent = '+';
+                });
+                item.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+
+        // Initialize first workshop as open
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstWorkshop = document.querySelector('.workshop-item');
+            if (firstWorkshop) {
+                firstWorkshop.classList.add('active');
+                firstWorkshop.querySelector('.toggle-icon').textContent = '−';
+            }
+        });
+    </script>
+    <!-- FAQ and Values Styles -->
+    <style>
+        /* FAQ Styles */
+        .faq-section {
+            padding: 6rem 0;
+        }
+
+        .faq-item {
+            border-top: 1px solid #eee;
+        }
+
+        .faq-header {
+            cursor: pointer;
+            padding: 2rem 0;
+        }
+
+        .faq-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 0;
+            line-height: 1.1;
+            max-width: 90%;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: max-height 0.3s ease-out, opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+            padding-bottom: 2rem;
+        }
+
+        .faq-content p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0;
+            padding-right: 3rem;
+        }
+
+        /* Values Section */
+        #values {
+            background-color: var(--secondary-color);
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+            border-top: 1px solid #eee;
+        }
+
+        .scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: var(--scroll-bg-color);
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 30s linear infinite;
+            font-size: 1.2rem;
+        }
+
+        .scroll-text-1 { color: var(--primary-color); }
+        .scroll-text-2 { color: var(--accent-color); }
+
+        @keyframes scroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+    </style>
+
+     <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+                        <h2 class="values-title">faqs</h2>
+
+            <div class="faq-item active">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <div class="faq-title-wrapper">
+                        <h2 class="faq-title">who are these workshops for?</h2>
+                        <span class="toggle-icon">−</span>
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <p>creative professionals who want to spend less time on admin and more time in their creative flow. photographers, designers, writers, artists — anyone looking to build their job-optional life while maintaining creative authenticity.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <div class="faq-title-wrapper">
+                        <h2 class="faq-title">i'm not technical. will i be able to keep up?</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <p>if you can use instagram, you can use these tools. we designed these workshops specifically for non-technical creatives. no coding required, just a willingness to learn and experiment.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <div class="faq-title-wrapper">
+                        <h2 class="faq-title">do i need to be a fi(re) expert?</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <p>not at all. this isn't a group *for* beginners, but if you're the nerdy, high-agency type and you're just getting started on your fire journey, we welcome you to join us.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <div class="faq-title-wrapper">
+                        <h2 class="faq-title">what makes this different from other fi(re) content?</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <p>we understand that information is ubiquitous and cheap. what you're looking for is like-minded community and meaning-making. our focus is on practical application and real community, not theory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <style>
+            .values-section {
+                padding: 6rem 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .values-title {
+                font-size: 2.5rem;
+                font-weight: 500;
+                margin-bottom: 3rem;
+                color: var(--primary-color);
+            }
+            
+            .values-list {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .values-item {
+                margin-bottom: 1.5rem;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+            
+            .values-item::before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: var(--accent-color);
+            }
+        </style>
+        
+        <div class="container">
+            <h2 class="values-title">about us</h2>
+            <ul class="values-list">
+                <li class="values-item">we pursue fi(re) in pursuit of a greater goal; mindfully designing our path. to us, fi(re) is a journey driven by purpose.</li>
+                <li class="values-item">we believe fi(re) exists on a leveled spectrum: as such, we focus less on numbers and spreadsheets and more on bigger picture life-building.</li>
+                <li class="values-item">we're scrappy and tend to start out leanfi/coastfi but recognize that there are many pathways to fatfi once you reach those initial starter levels.</li>
+                <li class="values-item">we invest in index funds and we also invest in ourselves and our businesses.</li>
+                <li class="values-item">we're non-judgmental. we don't care what your fire number is. we accept and respect you if you're leanfi, fatfi, coastfi, flamingofi, baristafi and everything in between.</li>
+                <li class="values-item">we value freedom over safety. we're less focused on "retiring" and more focused on building a life we want to "retire" to.</li>
+                <li class="values-item">as such, our definition of "retired" is very lax. we prefer "relax early" to "retire early." we understand that work can be quite meaningful and fulfilling and we're not into poopooing your hustle.</li>
+                <li class="values-item">we lean towards "retire from your day job" and building a life where you profit from your art, app, small business etc.</li>
+                <li class="values-item">we understand that we only live once.</li>
+            </ul>
+        </div>
+   
+    </section>
+
+    <!-- scrolling banner Values Section -->
+    <section id="values">
+        <div class="scroll-container">
+            <div class="scroll-text">
+                <span class="scroll-text-1">omnipotentialism</span> • 
+                <span class="scroll-text-2">mindfulness</span> • 
+                <span class="scroll-text-1">freedom</span> • 
+                <span class="scroll-text-2">work can be meaningful</span> • 
+                <span class="scroll-text-1">non-judgmental</span> • 
+                <span class="scroll-text-2">non-traditional</span> • 
+                <span class="scroll-text-1">scrappy</span> • 
+                <span class="scroll-text-2">flexible</span> • 
+                <span class="scroll-text-1">freedom</span> • 
+                <span class="scroll-text-2">options</span> • 
+                <span class="scroll-text-1">curious</span> • 
+                <span class="scroll-text-2">alternative-living</span> • 
+                <span class="scroll-text-1">high-agency</span> • 
+                <span class="scroll-text-2">intentional</span> • 
+                <span class="scroll-text-1">resilience</span> • 
+                <span class="scroll-text-2">authenticity</span> • 
+                <span class="scroll-text-1">life-long learning</span> • 
+                <span class="scroll-text-2">yolo</span> • 
+                <span class="scroll-text-1">resourceful</span> • 
+                <span class="scroll-text-2">abundance-mindset</span> • 
+                <span class="scroll-text-1">time-rich</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                // Close other open FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.toggle-icon').textContent = '+';
+                });
+                item.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+    <!-- Chatbot Styles -->
+    <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 500px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none;
+            font-family: 'Inter', sans-serif;
+            flex-direction: column;
+            z-index: 1000;
+            max-height: 80vh;
+            max-width: 90vw;
+        }
+
+        .chat-header {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header .close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .bot {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+        }
+
+        .user {
+            background-color: #0000ff;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #0000ff;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.9em;
+        }
+
+        #send-button {
+            padding: 8px 15px;
+            background-color: #0000ff;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0000ff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .sample-questions {
+            padding: 10px;
+            font-size: 0.8em;
+            border-top: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
+        }
+
+        .sample-question {
+            cursor: pointer;
+            color: #0000ff;
+            margin-bottom: 5px;
+        }
+
+        .sample-question:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Chatbot Elements -->
+    <button class="chatbot-toggle" id="chatbot-toggle">💬</button>
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chat-header">
+            ai overlord
+            <button class="close-btn" id="close-chat">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="loading" id="loading"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="type your message here...">
+            <button id="send-button">send</button>
+        </div>
+        <div class="sample-questions">
+            <div>Sample questions:</div>
+            <div class="sample-question" onclick="askSampleQuestion(this)">tell me about the spectrum of fire</div>
+            <div class="sample-question" onclick="askSampleQuestion(this)">is fire just for tech bros?</div>
+            <div class="sample-question" onclick="askSampleQuestion(this)">my cost of living is 55k/year, what should my fire number be?</div>
+            <div class="sample-question" onclick="askSampleQuestion(this)">tell me about the creatives on fire community in 3 sentences</div>
+        </div>
+    </div>
+
+    <!-- Chatbot JavaScript -->
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const loadingIndicator = document.getElementById('loading');
+        const closeChat = document.getElementById('close-chat');
+
+        function addMessage(message, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(isUser ? 'user' : 'bot');
+            messageElement.textContent = message;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function getBotResponse(userMessage) {
+            try {
+                const response = await fetch('https://aioverlordcreativesonfire-production.up.railway.app/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage }),
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                return data.reply;
+            } catch (error) {
+                console.error('Error:', error);
+                return "sorry, i'm having trouble thinking right now. try again later.";
+            }
+        }
+
+        async function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (userMessage !== '') {
+                addMessage(userMessage, true);
+                userInput.value = '';
+                loadingIndicator.style.display = 'block';
+                const botResponse = await getBotResponse(userMessage);
+                loadingIndicator.style.display = 'none';
+                addMessage(botResponse);
+            }
+        }
+
+        function askSampleQuestion(element) {
+            userInput.value = element.textContent;
+            handleUserInput();
+        }
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'flex';
+            chatbotToggle.style.display = 'none';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+            chatbotToggle.style.display = 'flex';
+        });
+
+        // Show chatbot after 3 seconds
+        setTimeout(() => {
+            chatbotToggle.style.display = 'flex';
+        }, 3000);
+
+        // Initial bot message
+        addMessage("hellloooo, did you have a question? try me. just pls be patient with my first message as I spin down with inactivity!");
+    </script>
+    
+     <script>
+        function toggleFaq(header) {
+            const item = header.closest('.faq-item');
+            const icon = header.querySelector('.toggle-icon');
+            const content = item.querySelector('.faq-content');
+            
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                icon.textContent = '+';
+            } else {
+                // Close other open FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.toggle-icon').textContent = '+';
+                });
+                item.classList.add('active');
+                icon.textContent = '−';
+            }
+        }
+
+        // Initialize first FAQ as open
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstFaq = document.querySelector('.faq-item');
+            if (firstFaq) {
+                firstFaq.classList.add('active');
+                firstFaq.querySelector('.toggle-icon').textContent = '−';
+            }
+        });
+    </script>
+    
+</body>
+</html>
